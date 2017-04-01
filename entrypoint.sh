@@ -10,14 +10,14 @@ useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -m qbittorrent
 
 chown -R qbittorrent.qbittorrent /config /torrents /downloads
 
-mkdir -p /home/qbittorrent/.config/qBittorrent
+mkdir -p /home/qbittorrent/.config
 
 ln -s /config /home/qbittorrent/.config/qBittorrent
 
-su qbittorrent
-
-cd
+chown -R qbittorrent.qbittorrent /home/qbittorrent /config /torrents /downloads
 
 qbittorrent-nox -v
 
-exec "$@"
+export HOME=/home/qbittorrent
+
+su -c "$@" -p qbittorrent

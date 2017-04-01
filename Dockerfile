@@ -38,6 +38,10 @@ COPY ./entrypoint.sh /
 
 VOLUME ["/config", "/torrents", "/downloads"]
 
+ENV USER_ID 107
+
+ENV GROUP_ID 114
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["qbittorrent-nox"]
