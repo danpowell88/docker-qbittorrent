@@ -25,14 +25,16 @@ RUN git clone https://github.com/arvidn/libtorrent.git /usr/src/libtorrent && \
   ./autotool.sh && \
   ./configure --disable-debug --enable-encryption --prefix=/usr --with-libgeoip=system CXXFLAGS=-std=c++11 && \
   make clean && make && \
-  make install
+  make install && \
+  rm -rf /usr/src/libtorrent
   
 RUN git clone https://github.com/qbittorrent/qBittorrent.git /usr/src/qbittorrent && \
   cd /usr/src/qbittorrent && \
   git checkout release-${QBITTORRENT_VERSION} && \
   ./configure --prefix=/usr --disable-gui && \
   make && \
-  make install
+  make install && \
+  rm -rf /usr/src/qbittorrent
 
 COPY ./entrypoint.sh /
 
