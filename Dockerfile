@@ -26,7 +26,6 @@ RUN apt-get update && \
   ./configure --disable-debug --enable-encryption --prefix=/usr --with-libgeoip=system CXXFLAGS=-std=c++11 && \
   make clean && make && \
   make install && \
-  rm -rf /usr/src/libtorrent && \
   
   # Download qBittorrent
   git clone https://github.com/qbittorrent/qBittorrent.git /usr/src/qbittorrent && \
@@ -35,10 +34,11 @@ RUN apt-get update && \
   ./configure --prefix=/usr --disable-gui --enable-debug && \
   make && \
   make install && \
-  cd / && \
-  rm -rf /usr/src/qbittorrent && \
-  
+  cd && \
+
   # Clean up
+  rm -rf /usr/src/qbittorrent && \
+  rm -rf /usr/src/libtorrent && \
   apt-get purge -y \
   # Purge General required dependencies
   libboost-dev libboost-system-dev build-essential \
