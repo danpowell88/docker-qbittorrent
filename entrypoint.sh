@@ -16,8 +16,6 @@ if [ ! -e /home/qbittorrent/.config/qBittorrent ]; then
   ln -s /config /home/qbittorrent/.config/qBittorrent
 fi
 
-chown -R qbittorrent.qbittorrent /home/qbittorrent /config /torrents /downloads
-
 qbittorrent-nox -v
 
 export HOME=/home/qbittorrent
