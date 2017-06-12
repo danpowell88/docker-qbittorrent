@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-USER_ID=${USER_ID:-107}
-GROUP_ID=${GROUP_ID:-114}
+USER_ID=${USER_ID:-99}
+GROUP_ID=${GROUP_ID:-100}
 
 if ! grep -q $GROUP_ID /etc/group; then groupadd -g $GROUP_ID qbittorrent; fi
 
