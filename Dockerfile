@@ -6,7 +6,8 @@ ENV USER_ID 107
 ENV GROUP_ID 114
 ENV BUILD_PACKAGES git python libboost-dev libboost-system-dev build-essential libqt4-dev qtbase5-dev qttools5-dev-tools libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev libgeoip-dev pkg-config automake libtool
 
-RUN apt-get update && \
+RUN add-apt-repository multiverse && \
+  apt-get update && \
   # General required dependencies
   apt-get install -y geoip-database $BUILD_PACKAGES && \
   
